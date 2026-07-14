@@ -52,6 +52,16 @@
                 <li class="text-gray-400 text-center py-8">Aucune tâche pour le moment.</li>
             @endforelse
         </ul>
+        <div class="flex justify-between items-center mb-6">
+    <h1 class="text-2xl font-bold text-gray-800">📝 Ma Todo List</h1>
+
+    <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <button type="submit" class="text-sm text-red-600 hover:text-red-800">
+            Déconnexion
+        </button>
+    </form>
+</div>
     </div>
 </body>
 </html>
