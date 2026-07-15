@@ -8,6 +8,7 @@
 <body class="bg-gray-100 min-h-screen py-10">
     <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-md p-6">
 
+        <!-- En-tête de la page avec titre et déconnexion. -->
         <div class="flex items-center justify-between mb-6">
             <h1 class="text-2xl font-bold text-gray-800">Ma liste de tâches</h1>
 
@@ -19,12 +20,14 @@
             </form>
         </div>
 
+        <!-- Message de succès après une action. -->
         @if(session('success'))
             <div class="bg-green-100 text-green-700 px-4 py-2 rounded-lg mb-4">
                 {{ session('success') }}
             </div>
         @endif
 
+        <!-- Bouton pour ouvrir le formulaire de création. -->
         <div class="mb-6">
             <a href="{{ route('tasks.create') }}"
                class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition">
@@ -32,6 +35,7 @@
             </a>
         </div>
 
+        <!-- Tableau simple pour afficher les tâches. -->
         <div class="overflow-x-auto">
             <table class="min-w-full border border-gray-200 rounded-lg overflow-hidden">
                 <thead class="bg-gray-50">
@@ -42,6 +46,7 @@
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200">
+                    <!-- Une ligne par tâche. -->
                     @forelse($tasks as $task)
                         <tr class="hover:bg-gray-50">
                             <td class="px-4 py-3 text-gray-800">{{ $task->title }}</td>
@@ -49,6 +54,7 @@
                                 {{ $task->completed ? 'Terminée' : 'En attente' }}
                             </td>
                             <td class="px-4 py-3">
+                                <!-- Actions disponibles pour chaque tâche. -->
                                 <div class="flex gap-2">
                                     <a href="{{ route('tasks.edit', $task) }}"
                                        class="text-sm bg-gray-200 hover:bg-gray-300 px-3 py-1.5 rounded-lg transition">
@@ -66,6 +72,7 @@
                             </td>
                         </tr>
                     @empty
+                        <!-- Message affiché si aucune tâche n'existe. -->
                         <tr>
                             <td colspan="3" class="px-4 py-8 text-center text-gray-400">Aucune tâche pour le moment.</td>
                         </tr>

@@ -1,25 +1,26 @@
 <x-guest-layout>
+    <!-- Formulaire de nouveau mot de passe après clic sur le lien reçu. -->
     <form method="POST" action="{{ route('password.store') }}">
         @csrf
 
-        <!-- Password Reset Token -->
+        <!-- Jeton de réinitialisation fourni dans l'URL. -->
         <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
-        <!-- Email Address -->
+        <!-- Champ e-mail. -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
-        <!-- Password -->
+        <!-- Nouveau mot de passe. -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />
             <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
-        <!-- Confirm Password -->
+        <!-- Confirmation du mot de passe. -->
         <div class="mt-4">
             <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
 
@@ -31,6 +32,7 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
+            <!-- Bouton de réinitialisation. -->
             <x-primary-button>
                 {{ __('Reset Password') }}
             </x-primary-button>

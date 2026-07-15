@@ -1,5 +1,6 @@
 <section class="space-y-6">
     <header>
+        <!-- Titre et avertissement pour la suppression. -->
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
             {{ __('Delete Account') }}
         </h2>
@@ -9,16 +10,19 @@
         </p>
     </header>
 
+    <!-- Bouton qui ouvre la confirmation de suppression. -->
     <x-danger-button
         x-data=""
         x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')"
     >{{ __('Delete Account') }}</x-danger-button>
 
+    <!-- Fenêtre de confirmation avant suppression définitive. -->
     <x-modal name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
         <form method="post" action="{{ route('profile.destroy') }}" class="p-6">
             @csrf
             @method('delete')
 
+            <!-- Demande de confirmation à l'utilisateur. -->
             <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
                 {{ __('Are you sure you want to delete your account?') }}
             </h2>
@@ -28,6 +32,7 @@
             </p>
 
             <div class="mt-6">
+                <!-- Mot de passe demandé pour confirmer la suppression. -->
                 <x-input-label for="password" value="{{ __('Password') }}" class="sr-only" />
 
                 <x-text-input
@@ -42,6 +47,7 @@
             </div>
 
             <div class="mt-6 flex justify-end">
+                <!-- Boutons annuler et supprimer. -->
                 <x-secondary-button x-on:click="$dispatch('close')">
                     {{ __('Cancel') }}
                 </x-secondary-button>

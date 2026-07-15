@@ -1,12 +1,15 @@
 <x-guest-layout>
     <div class="space-y-8">
         <div>
+            <!-- Titre principal de la page d'inscription. -->
             <h2 class="text-3xl font-semibold text-white">Inscription</h2>
         </div>
 
+        <!-- Formulaire de création de compte. -->
         <form method="POST" action="{{ route('register') }}" class="space-y-5">
             @csrf
 
+            <!-- Champ nom. -->
             <div>
                 <label for="name" class="mb-2 block text-sm font-medium text-slate-200">Nom</label>
                 <input id="name" name="name" type="text" value="{{ old('name') }}" required autofocus autocomplete="name"
@@ -16,6 +19,7 @@
                 @enderror
             </div>
 
+            <!-- Champ e-mail. -->
             <div>
                 <label for="email" class="mb-2 block text-sm font-medium text-slate-200">Email</label>
                 <input id="email" name="email" type="email" value="{{ old('email') }}" required autocomplete="username"
@@ -25,6 +29,7 @@
                 @enderror
             </div>
 
+            <!-- Champ mot de passe. -->
             <div>
                 <label for="password" class="mb-2 block text-sm font-medium text-slate-200">Mot de passe</label>
                 <input id="password" name="password" type="password" required autocomplete="new-password"
@@ -34,6 +39,7 @@
                 @enderror
             </div>
 
+            <!-- Confirmation du mot de passe. -->
             <div>
                 <label for="password_confirmation" class="mb-2 block text-sm font-medium text-slate-200">Confirmer</label>
                 <input id="password_confirmation" name="password_confirmation" type="password" required autocomplete="new-password"
@@ -43,6 +49,7 @@
                 @enderror
             </div>
 
+            <!-- Bouton de validation et lien vers la connexion. -->
             <div class="flex flex-col gap-3 pt-2 sm:flex-row sm:items-center sm:justify-between">
                 <a href="{{ route('login') }}" class="text-sm text-slate-400 underline decoration-slate-600 underline-offset-4 transition hover:text-cyan-300">
                     Déjà inscrit ?

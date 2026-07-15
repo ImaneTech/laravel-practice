@@ -14,6 +14,7 @@ class Task extends Model
 {
     use HasFactory;
 
+    // Champs autorisés pour l'enregistrement en masse.
     protected $fillable = [
         'title',
         'description',
@@ -21,6 +22,7 @@ class Task extends Model
         'user_id',
     ];
 
+    // Une tâche appartient à un utilisateur.
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
