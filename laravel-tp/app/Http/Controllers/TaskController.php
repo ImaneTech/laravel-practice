@@ -2,18 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
+    private function user(): User
+    {
+        $user = Auth::user();
+
+        abort_unless($user instanceof User, 403);
+
+        return $user;
+    }
+
     /**
      * Afficher la liste des tâches de l'utilisateur connecté.
      */
     public function index()
     {
-        $tasks = Auth::user()->tasks()->latest()->get();
+        $tasks = $this->user()->tasks()->latest()->get();
 
         return view('tasks.index', compact('tasks'));
     }
@@ -35,7 +45,7 @@ class TaskController extends Controller
             'title' => 'required|string|max:255',
         ]);
 
-        Auth::user()->tasks()->create([
+        $this->user()->tasks()->create([
             'title' => $request->title,
             'completed' => false,
         ]);
