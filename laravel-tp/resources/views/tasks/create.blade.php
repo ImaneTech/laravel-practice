@@ -25,7 +25,7 @@
 
             <button type="submit"
                 class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition">
-                Create
+                Créer
             </button>
         </form>
 

@@ -16,23 +16,23 @@
             <div>
                 <label for="email" class="mb-2 block text-sm font-medium text-slate-200">Email</label>
                 <input id="email" name="email" type="email" value="{{ old('email') }}" required autofocus autocomplete="username"
-                    class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-slate-500 outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/30" />
+                    class="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder:text-slate-400 outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/30" />
                 @error('email')
-                    <p class="mt-2 text-sm text-rose-300">{{ $message }}</p>
+                    <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                 @enderror
             </div>
 
             <div>
                 <label for="password" class="mb-2 block text-sm font-medium text-slate-200">Mot de passe</label>
                 <input id="password" name="password" type="password" required autocomplete="current-password"
-                    class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-slate-500 outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/30" />
+                    class="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder:text-slate-400 outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/30" />
                 @error('password')
-                    <p class="mt-2 text-sm text-rose-300">{{ $message }}</p>
+                    <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                 @enderror
             </div>
 
             <div class="pt-2">
-                <button type="submit" class="inline-flex w-full items-center justify-center rounded-2xl bg-cyan-400 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300">
+                <button type="submit" class="inline-flex w-full items-center justify-center rounded-2xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-500">
                     Entrer
                 </button>
             </div>
